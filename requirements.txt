@@ -1,0 +1,13 @@
+beautifulsoup4==4.9.3
+bs4==0.0.1
+certifi==2020.11.8
+chardet==3.0.4
+colorama==0.4.4
+httpie==2.3.0
+idna==2.10
+Pygments==2.7.2
+PySocks==1.7.1
+requests==2.24.0
+requests-toolbelt==0.9.1
+soupsieve==2.0.1
+urllib3==1.25.11
