@@ -1,7 +1,6 @@
 import requests
-import urllib3
 from bs4 import BeautifulSoup
-import httpie
+import os
 
 
 class ZipLinks():
@@ -37,18 +36,21 @@ class ZipLinks():
                     themepath_dict[name] = None
 
             if themepath_dict[name]:
+                releases_paths = {}
                 # Expunge Query String
                 url_only = themepath_dict[name].split('?')[0]
                 # Raw CSS or ZIP
                 if len(url_only.split('.')[-1]) <= 3:
-                    print('ZIP or CSS')
-        return themepath_dict
+                    exec_str = 'cmd /c "http --download {0}"'.format(themepath_dict[name])
+                    os.system(exec_str)
+                else:
+                    releases_paths[name] = themepath_dict[name]
+        return releases_paths
 
 
 if __name__=='__main__':
     f = ZipLinks()
     themes = f.get_theme_names(f._request(f.themes_url))
     tpd = f.get_archive_paths(themes)
-    for k, v in tpd.items():
-        print("{0}: {1}".format(k, v))
+    peint(tpd)
 

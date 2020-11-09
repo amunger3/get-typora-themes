@@ -1,4 +1,6 @@
 *.pyc
+*.css
+*.zip
 
 __pycache__
 .vscode
